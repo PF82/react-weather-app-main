@@ -26,9 +26,9 @@ function TopButtons() {
   ]
 
   return (
-    <div className='top-buttons'>
+    <div className='container-2'>
       {cities.map((city) => (
-        <button key={city.id} className='button'>{city.title}</button>
+        <button key={city.id} className='container-3'>{city.title}</button>
       ))}
     </div>
   );
