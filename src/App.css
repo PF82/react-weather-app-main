@@ -1,38 +1,136 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+/* app */
+.container-1 {
+  background-color: rgb(0, 119, 255);
+  max-width: auto;
   min-height: 100vh;
+  color: white;
+  font-size: 18px;
+}
+
+/* topbuttons */
+.container-2 {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+
+}
+
+.container-3 {
+  background: none;
+  font-size: medium;
+  border: none;
+}
+
+/* inputs */
+.container-4 {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.container-5 {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+.container-6::first-letter {
+  text-transform: capitalize;
+}
+
+.container-7,
+.container-8 {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  transition: all 1s ease-out;
+  /* border: 2px solid red; */
+}
+
+.container-7:hover,
+.container-8:hover {
+  font-size: 10px;
+}
+
+.container-9 {
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.container-10,
+.container-11 {
+  background: none;
+  border: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* timeandlocation */
+.container-11 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-13 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* temperatureanddetails */
+.container-15 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-16 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container-20 {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-21,
+.container-23 .container-27 {
+  display: flex;
+  align-items: center;
+}
+
+.container-31 {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* forecast */
+.container-36 {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.container-37 {
+  text-transform: uppercase;
+}
+
+.container-39 {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
+.container-40 {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
