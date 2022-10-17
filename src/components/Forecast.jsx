@@ -1,6 +1,8 @@
 import React from 'react'
+import { iconUrlFromCode } from '../services/weatherService';
 
-function Forecast({title}) {
+function Forecast({ title, items }) {
+    console.log(items)
     return (
         <div>
             <div className='container-36'>
@@ -9,14 +11,16 @@ function Forecast({title}) {
             <hr className='container-38' />
 
             <div className='container-39'>
-                <div className='container-40'>
-                    <p className='container-41'>04:30 PM</p>
-                    <img className='container-42' src="http://openweathermap.org/img/wn/10d@2x.png" alt="" />
-                    <p className='container-43'>22°C</p>
-                </div>
+                {items.map((item) => (
+                    <div className='container-40'>
+                        <p className='container-41'>{item.title}</p>
+                        <img className='container-42' src={iconUrlFromCode(item.icon)} alt="" />
+                        <p className='container-43'>{`${item.temp.toFixed()} °C`}</p>
+                    </div>
+                ))}
             </div>
         </div>
-    )
+    );
 }
 
 export default Forecast
