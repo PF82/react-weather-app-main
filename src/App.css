@@ -1,23 +1,43 @@
 /* app */
-.container-1 {
-  background-color: rgb(0, 119, 255);
-  max-width: auto;
+.container-0 {
+  width: 100%;
   min-height: 100vh;
   color: white;
-  font-size: 18px;
+  font-size: var(--font-size-16);
+  flex-direction: column;
+  border: var(--border-on);
+}
+
+.container-1 {
+  background-color: rgb(0, 119, 255);
+  /* background: $background-color;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: overlay; */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 680px;
+  min-height: auto;
+  padding: 20px 0 20px;
+  padding-bottom: 25px;
+  border-radius: 50px;
+  border: var(--border-off);
 }
 
 /* topbuttons */
 .container-2 {
   display: flex;
   justify-content: space-around;
-
 }
 
 .container-3 {
   background: none;
   font-size: medium;
-  border: none;
+  color: var(--color-white);
+  border: var(--border-off);
 }
 
 /* inputs */
@@ -34,22 +54,27 @@
   align-items: center;
 }
 
+.container-6 {
+  margin: 0 10px;
+}
+
 .container-6::first-letter {
   text-transform: capitalize;
 }
 
 .container-7,
 .container-8 {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
   transition: all 1s ease-out;
-  /* border: 2px solid red; */
+  margin-right: 10px;
 }
 
 .container-7:hover,
 .container-8:hover {
-  font-size: 10px;
+  width: 15px;
+  height: 15px;
 }
 
 .container-9 {
@@ -57,12 +82,26 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  height: 50px;
+  margin-left: 20px;
+  border: var(--border-off);
 }
 
-.container-10,
-.container-11 {
+.container-10 {
   background: none;
+  color: var(--color-white);
+  font-size: var(--font-size-20);
+  cursor: pointer;
+  transition: all 1s ease-out;
   border: none;
+}
+
+.container-10:hover {
+  font-size: var(--font-size-16);
+}
+
+.container-10-1 {
+  font-size: var(--font-size-20);
 }
 
 /* timeandlocation */
@@ -70,12 +109,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 15px;
+  border: var(--border-off);
 }
 
 .container-13 {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 40px;
+  border: var(--border-off);
 }
 
 /* temperatureanddetails */
@@ -83,6 +126,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 15px;
+  border: var(--border-off);
 }
 
 .container-16 {
@@ -92,33 +137,80 @@
   justify-content: space-between;
 }
 
+.container-17 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  border: var(--border-off);
+}
+
+.container-18,
+.container-19,
+.container-20 {
+  flex-basis: 33.33%;
+}
+
+.container-18 {
+  width: 130px;
+  margin: -20px 0;
+  border: var(--border-off);
+}
+
+.container-19 {
+  font-size: 60px;
+  text-align: center;
+  padding-right: 42.5px;
+  margin: -20px;
+  border: var(--border-off)
+}
+
 .container-20 {
   display: flex;
   flex-direction: column;
+  align-items: left;
+  margin-right: 20px;
+  border: var(--border-off);
 }
 
 .container-21,
-.container-23 .container-27 {
+.container-24,
+.container-28 {
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  margin-top: 5px;
+  border: var(--border-off);
 }
 
 .container-31 {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: row;
   align-items: center;
+  height: 20px;
+  margin: 0 15px 10px 15px;
 }
 
 /* forecast */
 .container-36 {
-  display: flex;
-  align-items: center;
-  justify-content: start;
+  width: auto;
+  padding: 0 25px;
 }
 
 .container-37 {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  text-transform: lowercase;
+}
+
+.container-38 {
   text-transform: uppercase;
+  word-spacing: 7px;
+  font-weight: bold;
+  margin: 15px auto 10px auto;
+  line-height: 10px;
+  border: var(--border-off);
 }
 
 .container-39 {
@@ -126,11 +218,23 @@
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
+  padding: 0 20px;
+  border: var(--border-off);
 }
 
 .container-40 {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  height: auto;
   align-items: center;
+  padding-bottom: 5px;
+}
+
+.container-41 {
+  height: 20px;
+}
+
+.container-42 {
+  height: 80px;
 }

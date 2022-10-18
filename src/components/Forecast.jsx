@@ -2,13 +2,16 @@ import React from 'react'
 import { iconUrlFromCode } from '../services/weatherService';
 
 function Forecast({ title, items }) {
-    console.log(items)
+    console.log(title) // for reference only
+    console.log(items) // for reference only
     return (
         <div>
             <div className='container-36'>
-                <p className='container-37'>{title}</p>
+                <hr className='container-36-1' />
             </div>
-            <hr className='container-38' />
+            <div className='container-37'>
+                <p className='container-38'>{title}</p>
+            </div>
 
             <div className='container-39'>
                 {items.map((item) => (

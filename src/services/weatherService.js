@@ -15,6 +15,7 @@ const getWeatherData = (infoType, searchParams) => {
 };
 
 const formatCurrentWeather = (data) => {
+    console.log(data) //  for reference only
     const {
         coord: { lat, lon },
         main: { temp, feels_like, temp_min, temp_max, humidity },
@@ -31,6 +32,7 @@ const formatCurrentWeather = (data) => {
 }
 
 const formatForecastWeather = (data) => {
+    console.log(data) //  for reference only
     let { timezone, daily, hourly } = data;
     daily = daily.slice(1, 7).map(d => {
         return {

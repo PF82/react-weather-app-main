@@ -38,38 +38,33 @@ function TemperatureAndDetails({
                 <div className='container-20'>
                     <div className='container-21'>
                         <UilTemperature className='container-22' />
-                        Feels like:
+                        &nbsp;&nbsp;Feels like:&nbsp;
                         <span className='container-23'>{`${feels_like.toFixed()} °C`}</span>
                     </div>
-                </div>
-                <div className='container-23'>
                     <div className='container-24'>
                         <UilTear className='container-25' />
-                        Humidity:
+                        &nbsp;&nbsp;Humidity:&nbsp;
                         <span className='container-26'>{humidity} %</span>
                     </div>
-                </div>
-                <div className='container-27'>
                     <div className='container-28'>
                         <UilWind className='container-29' />
-                        Wind speed:
+                        &nbsp;&nbsp;Wind speed:&nbsp;
                         <span className='container-30'>{speed.toFixed()} Km/h</span>
                     </div>
                 </div>
             </div>
             <div className="container-31">
                 <UilSun />
-                <p>Sunrise: <span>{formatToLocalTime(sunrise, timezone, "hh:mm a")}</span></p>
-                <p className="container-32">|</p>
-                <UilSunset />
-                <p>Sunset: <span>{formatToLocalTime(sunset, timezone, "hh:mm a")}</span></p>
-                <p className="container-33">|</p>
-                <UilSun />
                 <p>High: <span>{`${temp_max.toFixed()} °C`}</span></p>
                 <p className="container-34">|</p>
                 <UilSun />
                 <p>Low: <span>{`${temp_min.toFixed()} °C`}</span></p>
-                <p className="container-35">|</p>
+                <p className="container-34">|</p>
+                <UilSun />
+                <p>Sunrise: <span>{formatToLocalTime(sunrise, timezone, "hh:mm a")}</span></p>
+                <p className="container-34">|</p>
+                <UilSunset />
+                <p>Sunset: <span>{formatToLocalTime(sunset, timezone, "hh:mm a")}</span></p>
             </div>
         </div>
     )

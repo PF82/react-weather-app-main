@@ -7,6 +7,7 @@ import TemperatureAndDetails from './components/TemperatureAndDetails';
 import Forecast from './components/Forecast';
 import getFormattedWeatherData from "./services/weatherService";
 import { useEffect, useState } from 'react';
+// import BackgroundImage from "./components/BackgroundImage";
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
 
   useEffect(() => {
     const fetchWeather = async () => {
-     await getFormattedWeatherData({ ...query, units }).then((data) => {
+      await getFormattedWeatherData({ ...query, units }).then((data) => {
         setWeather(data);
       });
     };
@@ -25,19 +26,21 @@ function App() {
   }, [query, units]);
 
   return (
-    <div className="container-1">
-      <TopButtons />
-      <Inputs />
+    <div className="container-0">
+      <div className='container-1'>
+        <TopButtons setQuery={setQuery} />
+        <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
 
-      {weather && (
-        <div>
-          <TimeAndLocation weather={weather} />
-          <TemperatureAndDetails weather={weather} />
+        {weather && (
+          <div>
+            <TimeAndLocation weather={weather} />
+            <TemperatureAndDetails weather={weather} />
 
-          <Forecast title="hourly forecast" items={weather.hourly} />
-          <Forecast title="dayly forecast" items={weather.daily} />
-        </div>
-      )}
+            <Forecast title="hourly forecast" items={weather.hourly} />
+            <Forecast title="dayly forecast" items={weather.daily} />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
