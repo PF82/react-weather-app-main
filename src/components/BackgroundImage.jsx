@@ -19,8 +19,11 @@ function BackgroundImage(id) {
     } else if (id == 802) {
         document.body.style.backgroundImage = "url('../public/img/scattered-clouds.jpg')";
     } else {
-        document.body.style.backgroundImage = "url('../public/img/broken-clouds.jpg')";
+        document.body.style.backgroundImage = "url('../')";
     }
 }
+
+var bi = document.getElementById('background-image');
+bi.style.backgroundImage = BackgroundImage(id);
 
 export default BackgroundImage

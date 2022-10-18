@@ -14,12 +14,7 @@
 
 * {
     font-family: 'Poppins', sans-serif;
+    color: var(--color-white);
     margin: 0;
     box-sizing: border-box;
-      /* background-color: none;
-  background-image: url("/public/img/default-image.jpg");
-  background-repeat: no-repeat;
-  background-position: fixed;
-  background-attachment: fixed;
-  background-size: cover; */
 }

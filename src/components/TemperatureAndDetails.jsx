@@ -13,7 +13,7 @@ import { formatToLocalTime } from "../services/weatherService";
 
 function TemperatureAndDetails({
     weather: {
-        details,
+        description,
         icon,
         temp,
         feels_like,
@@ -29,7 +29,7 @@ function TemperatureAndDetails({
     return (
         <div>
             <div className='container-15'>
-                <p className='container-16'>{details}</p>
+                <p className='container-16'>{description}</p>
             </div>
 
             <div className='container-17'>
