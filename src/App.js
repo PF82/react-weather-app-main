@@ -1,14 +1,14 @@
 import './App.css';
 import UilReact from '@iconscout/react-unicons/icons/uil-react';
-import TopButtons from './components/TopButtons';
-import Inputs from './components/Inputs';
-import TimeAndLocation from './components/TimeAndLocation';
-import TemperatureAndDetails from './components/TemperatureAndDetails';
-import Forecast from './components/Forecast';
+import TopButtons from './components/top-buttons/TopButtons';
+import Inputs from './components/inputs/Inputs';
+import TimeAndLocation from './components/time-and-location/TimeAndLocation';
+import TemperatureAndDetails from './components/temperature-and-details/TemperatureAndDetails';
+import Forecast from './components/forecast/Forecast';
+// import BackgroundImage from './components/BackgroundImage';
 import getFormattedWeatherData from "./services/weatherService";
 import { useEffect, useState } from 'react';
 import background from "./img/rain.jpg";
-import BackgroundImage from "./components/BackgroundImage";
 
 function App() {
 
@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div>
-      <div id='backgroundimage' className='container-0' style={{ backgroundImage: `url(${background})` }}></div>
+      <div className='container-0' style={{ backgroundImage: `url(${background})` }}></div>
 
       <div>
         <div className='container-1'>
@@ -49,6 +49,7 @@ function App() {
             <div>
               <TimeAndLocation weather={weather} />
               <TemperatureAndDetails weather={weather} />
+              {/* <BackgroundImage weather={weather} /> */}
 
               <Forecast title="hourly forecast" items={weather.hourly} />
               <Forecast title="dayly forecast" items={weather.daily} />

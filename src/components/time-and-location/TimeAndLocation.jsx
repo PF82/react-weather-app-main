@@ -1,7 +1,7 @@
 import React from 'react'
-import { formatToLocalTime } from '../services/weatherService'
+import { formatToLocalTime } from '../../services/weatherService'
 
-function TimeAndLocation({ weather: { dt, timezone, name, country } }) {
+function TimeAndLocation({ weather: { dt, id, timezone, name, country } }) {
     return (
         <div>
             <div className='container-11'>
