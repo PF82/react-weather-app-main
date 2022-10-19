@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import { UilSearch, UilLocationPoint } from '@iconscout/react-unicons'
+import React, { useState } from 'react';
+import { UilSearch, UilLocationPoint } from '@iconscout/react-unicons';
+import classes from '../inputs/Inputs.module.css';
 
 function Inputs({ setQuery, units, setUnits }) {
     const [city, setCity] = useState("");
