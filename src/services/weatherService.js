@@ -1,12 +1,11 @@
 import { DateTime } from "luxon";
 
-// react-weather-app-m openweather API key
 const API_KEY = "9c61d7516f674d61ce67583b5f1d3f23";
-const BASE_URL = "https://api.openweathermap.org/data/2.5";
+const API_BASE_URL = "https://api.openweathermap.org/data/2.5";
 
 const getWeatherData = (infoType, searchParams) => {
-    const url = new URL(BASE_URL + "/" + infoType);
-    url.search = new URLSearchParams({ ...searchParams, appid: API_KEY });
+    const url = new URL(API_BASE_URL + "/" + infoType); // process.env.REACT_APP_API_BASE_URL
+    url.search = new URLSearchParams({ ...searchParams, appid: API_KEY }); // process.env.REACT_APP_API_KEY
 
     console.log(url)
     return fetch(url)
@@ -74,4 +73,4 @@ const iconUrlFromCode = (code) => `http://openweathermap.org/img/wn/${code}@2x.p
 
 export default getFormattedWeatherData
 
-export { formatToLocalTime, iconUrlFromCode };
+export { formatToLocalTime, iconUrlFromCode, formatCurrentWeather };

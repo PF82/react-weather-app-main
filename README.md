@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+# App functionality flow
+<!-- 1. user to type the location in and to press the enter button
+2. onKeyPress calls the API through getWeatherData function
+3. if the API call is successful, the weather state is updated (with setWeather)
+4. when the weather state changes, the useEffect hook is triggered by the dependencies that has from the weather state
+5. when the useEffect runs again, the appropriate image is saved (conditionally using the if statements) in weatherImg state
+6. as the states change, the component is 're-rendered' and the css gives a new image from the weatherImg state to the property -->
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Notes and examples
+1. .env file not working properly; invalid api key message or undefined log on dev tools 
 
-## Available Scripts
+https://www.youtube.com/watch?v=cWk5EKVxrgo
 
-In the project directory, you can run:
+import React, { useState, useEffect } from 'react'
 
-### `npm start`
+const CurrentWeather = () => {
+    /* react useState hooks keep track of the application state in a function component; they accept an initial 
+    state and return two values: the current state and a function that updates the state */
+    /* destructure the returned values from useState; the first value, color, is our current state and the 
+    second value, setColor, is the function that is used to update our state; these names are variables that can 
+    be named anything */
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    // EXAMPLE FROM W3SCHOOLS.COM:
+    // Use a button to update the state:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    // import { useState } from "react";
+    // import ReactDOM from "react-dom/client";
 
-### `npm test`
+    // function FavoriteColor() {
+    //   const [color, setColor] = useState("red");
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    //   return (
+    //     <>
+    //       <h1>My favorite color is {color}!</h1>
+    //       <button
+    //         type="button"
+    //         onClick={() => setColor("blue")}
+    //       >Blue</button>
+    //     </>
+    //   )
+    // }
 
-### `npm run build`
+    // const root = ReactDOM.createRoot(document.getElementById('root'));
+    // root.render(<FavoriteColor />);
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    // EXAMPLE FROM REACTJS.ORG:
+    // Use a button to update the state:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    // import React, { useState } from 'react';
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    // function Example() {
+    //     // Declare a new state variable, which we'll call "count"
+    //     const [count, setCount] = useState(0);
 
-### `npm run eject`
+    //     return (
+    //         <div>
+    //             <p>You clicked {count} times</p>
+    //             <button onClick={() => setCount(count + 1)}>
+    //                 Click me
+    //             </button>
+    //         </div>
+    //     );
+    // }
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [items, setItems] = useState([]);
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    // set the initial unit value to ‘metric’ to act as a default
+    // const [unit, setUnit] = useState('metric');
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    /* the useEffect hook allows to perform side effects in the components. some examples of side effects are: 
+    fetching data, directly updating the DOM, and timers. useEffect accepts two arguments. The second argument 
+    is optional; useEffect(<function>, <dependency>); the empty deps array [] means this useEffect will run 
+    once/runs only on the first render */
+    // https://www.w3schools.com/react/react_useeffect.asp
+    useEffect(() => {
+        fetch(`https://open-weather13.p.rapidapi.com/city/Porto`, {
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
+                'X-RapidAPI-Host': 'open-weather13.p.rapidapi.com'
+            }
+        })
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => console.error(err));
+    }, [])
 
-## Learn More
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+        return <div>Loading...</div>;
+    } else {
+        return (
+            <ul>
+                {items.map(item => (
+                    <li key={item.id}>
+                        {item.name} {item.price}
+                    </li>
+                ))}
+            </ul>
+        );
+    }
+}
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+export default CurrentWeather
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
